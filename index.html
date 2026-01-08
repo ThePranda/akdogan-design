@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akdoğan Design | Mobilya İmalat</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <style>
+        :root {
+            --primary: #c4956a;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 15px; }
+        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.5; background: #fff; }
+
+        /* NAVBAR */
+        nav {
+            background: #fff; height: 70px; display: flex; justify-content: space-between;
+            align-items: center; padding: 0 5%; position: fixed;
+            top: 0; width: 100%; z-index: 1000; box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+        }
+        .logo-box { display: flex; align-items: center; gap: 8px; }
+        .logo-box h1 { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #333; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .btn-nav-wp { background: #25d366; color: white !important; padding: 8px 15px; border-radius: 4px; font-size: 0.75rem !important; }
+
+        /* HERO */
+        .hero { 
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; margin-top: 70px;
+        }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1rem; color: var(--primary); letter-spacing: 2px; }
+
+        .container { width: 90%; max-width: 1100px; margin: 50px auto; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+
+        /* NEDEN BİZ */
+        .why-us-box { background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .why-card { border-left: 4px solid var(--primary); padding-left: 20px; }
+        .why-card h4 { font-size: 1.1rem; margin-bottom: 5px; color: var(--dark); }
+        .why-card p { font-size: 0.85rem; color: #666; }
+
+        /* MALZEMELER */
+        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .mat-card { background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; text-align: center; transition: 0.4s; }
+        .mat-card:hover { background: var(--dark); color: #fff; transform: translateY(-5px); }
+        .mat-card:hover h3 { color: var(--primary); }
+        .btn-quote { display: inline-block; padding: 8px 18px; border: 1px solid var(--primary); color: var(--primary); text-decoration: none; font-size: 0.8rem; font-weight: 600; border-radius: 4px; margin-top: 10px; }
+
+        /* GALERİ */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; }
+        .gallery-item { position: relative; height: 200px; overflow: hidden; border-radius: 6px; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay b { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; }
+
+        /* KATALOG BUTONU */
+        .btn-katalog { 
+            display: block; width: fit-content; margin: 30px auto 0; padding: 12px 35px; 
+            background: var(--dark); color: white; text-decoration: none; font-weight: 600; 
+            border-radius: 5px; transition: 0.3s; border: 1px solid var(--dark);
+        }
+        .btn-katalog:hover { background: white; color: var(--dark); }
+
+        /* İLETİŞİM */
+        .full-dark-contact { background: var(--dark); color: #fff; padding: 50px 0; margin-top: 50px; }
+        .contact-box { display: grid; grid-template-columns: 1fr 1.2fr; border-radius: 12px; overflow: hidden; background: #222; max-height: 400px; }
+        .contact-text { padding: 35px; display: flex; flex-direction: column; justify-content: center; }
+        .contact-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; }
+        .contact-text p { margin-bottom: 10px; font-size: 0.9rem; color: #bbb; }
+        
+        .map-area { height: 100%; min-height: 350px; background: #000; overflow: hidden; }
+        .map-area iframe { filter: grayscale(100%) invert(90%) contrast(120%); }
+
+        .wp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 20px; text-decoration: none; font-weight: 600; border-radius: 50px; z-index: 1000; }
+        footer { padding: 30px; text-align: center; font-size: 0.75rem; color: #666; background: #111; }
+
+        @media (max-width: 768px) { .contact-box { grid-template-columns: 1fr; max-height: none; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-box"><h1>AKDOĞAN DESIGN</h1></div>
+        <ul class="nav-links">
+            <li><a href="#atolyemiz">Malzemeler</a></li>
+            <li><a href="#koleksiyon">Çalışmalarımız</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+            <li><a href="https://wa.me/0542 325 34 79" class="btn-nav-wp">Teklif Al</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h2>Hayallerinizdeki Mobilyalar</h2>
+        <p>Çorlu'da Sanatla Üretiyoruz</p>
+    </div>
+
+    <div class="container">
+        <div class="section-header"><h2>Neden Bizi Seçmelisiniz?</h2></div>
+        <div class="why-us-box">
+            <div class="why-card">
+                <h4>Direkt İmalat</h4>
+                <p>Aracıları ortadan kaldırarak kendi atölyemizde üretiyor, bütçenizi koruyoruz.</p>
+            </div>
+            <div class="why-card">
+                <h4>Ücretsiz Keşif</h4>
+                <p>Mekanınıza gelip ölçüleri titizlikle alıyor, en doğru tasarımı planlıyoruz.</p>
+            </div>
+            <div class="why-card">
+                <h4>Zamanında Montaj</h4>
+                <p>Usta işçilikle söz verdiğimiz tarihte teslimat yapıyoruz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="atolyemiz">
+        <div class="section-header"><h2>Panel Türleri</h2></div>
+        <div class="materials-grid">
+            <div class="mat-card">
+                <h3>MDF Lam</h3>
+                <p>Dayanıklılık ve estetiği buluşturan yüzeyler.</p>
+                <a href="https://wa.me/905423253479" class="btn-quote">Fiyat Al</a>
+            </div>
+            <div class="mat-card">
+                <h3>Doğal Ahşap</h3>
+                <p>Masif meşe ve ceviz ile zamansız tasarımlar.</p>
+                <a href="https://wa.me/905423253479" class="btn-quote">Fiyat Al</a>
+            </div>
+            <div class="mat-card">
+                <h3>Modern Lake</h3>
+                <p>Özel boya işçiliği ile lüks görünümler.</p>
+                <a href="https://wa.me/905423253479" class="btn-quote">Fiyat Al</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="koleksiyon">
+        <div class="section-header"><h2>Uygulama Örneklerimiz</h2></div>
+        <div class="gallery">
+            <a href="1.jpg" data-fancybox="gallery" class="gallery-item">
+                <img src="1.jpg" alt="Mutfak">
+                <div class="gallery-overlay"><b>Akdoğan Design</b></div>
+            </a>
+            <a href="2.jpg" data-fancybox="gallery" class="gallery-item">
+                <img src="2.jpg" alt="Banyo">
+                <div class="gallery-overlay"><b>Akdoğan Design</b></div>
+            </a>
+            <a href="3.jpg" data-fancybox="gallery" class="gallery-item">
+                <img src="3.jpg" alt="Komidin">
+                <div class="gallery-overlay"><b>Akdoğan Design</b></div>
+            </a>
+            <a href="4.jpg" data-fancybox="gallery" class="gallery-item">
+                <img src="4.jpg" alt="Gardrop">
+                <div class="gallery-overlay"><b>Akdoğan Design</b></div>
+            </a>
+        </div>
+
+        <a href="katalog.html" class="btn-katalog">TÜM MODELLERİ GÖR (Katalog)</a>
+    </div>
+
+    <div class="full-dark-contact" id="iletisim">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-text">
+                    <h3>İletişim</h3>
+                    <p><strong>📍 Adres:</strong> Hatip Mah. Sarısalkım 3. Sok. No: 1/K0 Çorlu/TEKİRDAĞ</p>
+                    <p><strong>📞 Telefon:</strong> +90 542 325 34 79</p>
+                    <p style="color: var(--primary); margin-top: 15px; font-weight: 600;">Ücretsiz keşif için arayın!</p>
+                </div>
+                <div class="map-area">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3002.321458925!2d27.70123!3d41.16123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA5JzQwLjQiTiAyN8KwNDInMDQuNCJF!5e0!3m2!1str!2str!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <a href="https://wa.me/905423253479" class="wp-float">WhatsApp Fiyat Al</a>
+
+    <footer>
+        © 2026 Akdoğan Design · Çorlu
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>Fancybox.bind("[data-fancybox]", {});</script>
+
+</body>
+
+</html>
+
+
+

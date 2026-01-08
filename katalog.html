@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akdoğan Design | Katalog & Bilgi Hattı</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <style>
+        :root {
+            --primary: #c4956a;
+            --dark: #1a1a1a;
+            --bg: #fdfdfd;
+            --wp: #25d366;
+            --call: #333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #333; }
+
+        .catalog-header {
+            background: #fff;
+            padding: 30px 5%;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-link { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.85rem; display: inline-block; margin-bottom: 10px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); }
+        .subtitle { font-size: 0.9rem; color: #888; margin-top: 5px; }
+
+        .filter-nav { display: flex; justify-content: center; gap: 8px; margin: 25px 0 10px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 18px; border: 1px solid #eee; background: #fff; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
+
+        .container { width: 92%; max-width: 1200px; margin: 20px auto; }
+
+        .grid-section { display: none; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .grid-section.active { display: grid; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .img-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .img-wrap { position: relative; height: 280px; overflow: hidden; cursor: zoom-in; }
+        .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .img-card:hover .img-wrap img { transform: scale(1.08); }
+
+        .card-buttons { display: flex; flex-direction: column; }
+        .btn-action { display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 14px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; gap: 8px; }
+        
+        .call-btn { background: var(--call); color: white; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .call-btn:hover { background: #000; }
+        
+        .wp-btn { background: var(--wp); color: white; }
+        .wp-btn:hover { background: #1eb954; }
+
+        .cta-box { background: var(--dark); color: white; padding: 60px 30px; text-align: center; border-radius: 15px; margin: 80px auto 40px; max-width: 1100px; }
+        .cta-box h2 { font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 15px; font-size: 1.8rem; }
+        .cta-main-btn { background: var(--primary); color: white; padding: 16px 45px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; margin-top: 20px; }
+
+        footer { padding: 40px; text-align: center; color: #999; font-size: 0.8rem; }
+
+        @media (max-width: 600px) { .img-wrap { height: 220px; } h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+
+    <header class="catalog-header">
+        <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+        <h1>Üretim Kataloğumuz</h1>
+        <p class="subtitle">İncelediğiniz modeller için WhatsApp üzerinden anında bilgi alabilirsiniz.</p>
+        
+        <div class="filter-nav">
+            <button class="filter-btn active" onclick="showCat('mutfak', event)">MUTFAK</button>
+            <button class="filter-btn" onclick="showCat('portmanto', event)">PORTMANTO</button>
+            <button class="filter-btn" onclick="showCat('gardrop', event)">GARDIROP</button>
+            <button class="filter-btn" onclick="showCat('masa', event)">MASA & KOMİDİN</button>
+            <button class="filter-btn" onclick="showCat('banyo', event)">BANYO & BALKON</button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div id="mutfak" class="grid-section active">
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="mutfak" href="mutfak1.jpg"><img src="mutfak1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, mutfak dolabı modelleriniz hakkında bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="mutfak" href="mutfak2.jpg"><img src="mutfak2.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, bu mutfak modeli hakkında bilgi alabilir miyim?" class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="mutfak" href="mutfak4.jpg"><img src="mutfak4.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, mutfak projesi için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="mutfak" href="mutfakdekor.jpg"><img src="mutfakdekor.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, mutfak dekorasyonu için mesaj gönderiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="portmanto" class="grid-section">
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="portmanto" href="vestiyer1.jpg"><img src="vestiyer1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, portmanto modelleriniz için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="portmanto" href="vestiyer2.jpg"><img src="vestiyer2.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, vestiyer modelleriniz için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="gardrop" class="grid-section">
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="gardrop" href="dolap.jpg"><img src="dolap.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, elbise dolabı modelleriniz için bilgi istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="gardrop" href="dolap1.jpg"><img src="dolap1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, gardırop tasarımlarınız için mesaj gönderiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="gardrop" href="dolap2.jpg"><img src="dolap2.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, özel ölçü dolaplar hakkında bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="masa" class="grid-section">
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="masa" href="masa1.jpg"><img src="masa1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, masa modelleriniz hakkında bilgi alabilir miyim?" class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="masa" href="komidin1.jpg"><img src="komidin1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, komidin modelleriniz için mesaj gönderiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="banyo" class="grid-section">
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="banyo" href="balkon1.jpg"><img src="balkon1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, balkon dolabı projesi için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="banyo" href="balkon2.jpg"><img src="balkon2.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, banyo dolabı modelleriniz için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="banyo" href="banyo1.jpg"><img src="banyo1.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, banyo dolabı tasarımlarınız için mesaj gönderiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+            <div class="img-card">
+                <div class="img-wrap" data-fancybox="banyo" href="banyo2.jpg"><img src="banyo2.jpg"></div>
+                <div class="card-buttons">
+                    <a href="tel:+905423253479" class="btn-action call-btn">📞 Bilgi Almak İçin Ara</a>
+                    <a href="https://wa.me/905423253479?text=Merhaba sitenizden geliyorum, mobilya modelleriniz için bilgi almak istiyorum." class="btn-action wp-btn">💬 WhatsApp'tan Mesaj Gönder</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="cta-box">
+            <h2>Hemen Bilgi Alın</h2>
+            <p>Evinize özel çözümler ve ücretsiz ölçü hizmetimiz için bize ulaşın.</p>
+            <a href="tel:+905423253479" class="cta-main-btn">📍 Ücretsiz Keşif İçin Ara</a>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Akdoğan Design · Çorlu Mobilya İmalat Atölyesi
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", { infinite: true });
+
+        function showCat(catId, event) {
+            document.querySelectorAll('.grid-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(catId).classList.add('active');
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
